@@ -10,3 +10,11 @@ for (i = 0; i < 16; i++){
         row.appendChild(square);
     }
 }
+
+/* as the mouse enters a square, background changed to black*/
+const grid = document.querySelectorAll('square');
+    grid.forEach ((square) => {
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = 'black'
+        });
+    });
