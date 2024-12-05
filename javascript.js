@@ -40,5 +40,12 @@ newGrid.addEventListener('click', () => {
                 row.appendChild(square);
             }
         }
+        const color = document.querySelectorAll('.square');
+        color.forEach ((square) => {
+            square.addEventListener('mouseover', () => {
+                square.style.backgroundColor = 'black'
+            });
+        });
+    
     }
 });
