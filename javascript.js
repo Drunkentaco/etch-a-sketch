@@ -15,13 +15,17 @@ function randomColor(){
     return Math.floor(Math.random() * 256);
 }
 
+/* as the mouse enters a square, background changed to random color,
+and make the color darker by 10%*/
+let n = 1
 
-/* as the mouse enters a square, background changed to random number,
-and loops to make the color darker by 10%*/
 const color = document.querySelectorAll('.square');
     color.forEach ((square) => {
-        square.addEventListener('mouseover', () => {
-            square.style.backgroundColor = `rgb(${randomColor()},${randomColor()},${randomColor()})`;
+        square.addEventListener('mouseover', () => { 
+            if (n !== 0){
+                let opacity = n -= 0.1
+                square.style.backgroundColor = `rgb(${randomColor()*opacity},${randomColor()*opacity},${randomColor()*opacity})`;
+            }
         });
     });
 
@@ -46,13 +50,17 @@ newGrid.addEventListener('click', () => {
                 row.appendChild(square);
             }
         }
-        /* as the mouse enters a square, background changed to black
-        again! After dimention was changed*/
+        /* as the mouse enters a square, background goes from random colors to black...again!
+        After dimention was changed*/
+        let n = 1
         const color = document.querySelectorAll('.square');
         color.forEach ((square) => {
             square.addEventListener('mouseover', () => {
                 Math.floor(Math.random() * 256)
-                square.style.backgroundColor = `rgb(${randomColor()},${randomColor()},${randomColor()})`;
+                if (n !== 0){
+                    let opacity = n -= 0.1
+                    square.style.backgroundColor = `rgb(${randomColor()*opacity},${randomColor()*opacity},${randomColor()*opacity})`;
+                }            
             });
         });
     }
