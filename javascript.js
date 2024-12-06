@@ -11,11 +11,17 @@ for (i = 0; i < 16; i++){
     }
 }
 
-/* as the mouse enters a square, background changed to black*/
+function randomColor(){
+    return Math.floor(Math.random() * 256);
+}
+
+
+/* as the mouse enters a square, background changed to random number,
+and loops to make the color darker by 10%*/
 const color = document.querySelectorAll('.square');
     color.forEach ((square) => {
         square.addEventListener('mouseover', () => {
-            square.style.backgroundColor = 'black'
+            square.style.backgroundColor = `rgb(${randomColor()},${randomColor()},${randomColor()})`;
         });
     });
 
@@ -40,12 +46,14 @@ newGrid.addEventListener('click', () => {
                 row.appendChild(square);
             }
         }
+        /* as the mouse enters a square, background changed to black
+        again! After dimention was changed*/
         const color = document.querySelectorAll('.square');
         color.forEach ((square) => {
             square.addEventListener('mouseover', () => {
-                square.style.backgroundColor = 'black'
+                Math.floor(Math.random() * 256)
+                square.style.backgroundColor = `rgb(${randomColor()},${randomColor()},${randomColor()})`;
             });
         });
-    
     }
 });
